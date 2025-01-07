@@ -1,0 +1,86 @@
+.dashboard {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1e53d8, #8cdcff);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Welcome Section */
+  .welcome-section {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  
+  .welcome-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-section p {
+    font-size: 1.2rem;
+    color: #ffe17a;
+  }
+  
+  .current-level {
+    font-weight: bold;
+    color: #ffdd57;
+  }
+  
+  /* Level Section */
+  .level-section {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .level-info h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .level-info p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .start-btn {
+    background-color: #ff6f61;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .start-btn:hover {
+    background-color: #ff4a3d;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .welcome-section h1 {
+      font-size: 2rem;
+    }
+  
+    .level-section {
+      padding: 15px;
+    }
+  
+    .start-btn {
+      padding: 10px 16px;
+      font-size: 0.9rem;
+    }
+  }
+  

@@ -1,0 +1,68 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(90deg, #1e3c72, #2a5298); 
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+}
+
+.header .logo .circle {
+  background-color: #f39c12;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.header .site-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: white;
+  color: #1e3c72;
+}
+
+.get-started-btn {
+  background-color: #f39c12;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #d87c00;
+  transform: scale(1.05);
+}

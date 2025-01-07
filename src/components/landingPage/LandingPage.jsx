@@ -13,6 +13,7 @@ const LandingPage =()=> {
    const [showLogin, setShowLogin] = useState(false);
    const [showRegister, setShowRegister] = useState(false);
    const [username, setUsername] = useState('');
+   const [currentLevel, setCurrentLevel] = useState('')
    const navigate = useNavigate();
  
    const openLogin = () => {
@@ -32,6 +33,7 @@ const LandingPage =()=> {
 
    const onLoginSuccess =(username) =>{
      setUsername(username);
+     setCurrentLevel(currentLoggedInUse)
      navigate('/dashboard', {state:{username}} );
    }
  

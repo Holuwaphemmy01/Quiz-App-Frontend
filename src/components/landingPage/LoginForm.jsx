@@ -23,6 +23,10 @@ const LoginForm = ({ closeForm, openRegister, onLoginSuccess }) => {
         const response = await axios.post('http://localhost:8081/quiz/login', {username, password});
         console.log(response.data)
 
+        const currentLoggedInUser = response.data;
+        onLoginSuccess(currentLoggedInUser);
+
+
         // if(response.data !== username){
         //   setError('Invalid username or password');
         // }
