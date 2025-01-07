@@ -7,7 +7,8 @@ const RegisterForm = ({ closeForm, openLogin }) => {
     firstName:'',
     lastName:'',
     userName:'',
-    password:''
+    password:'',
+    email:''
   });
 
   const [loading, setLoading] = useState(false);
@@ -29,12 +30,13 @@ const RegisterForm = ({ closeForm, openLogin }) => {
     firstName: formData.firstName,
     lastName: formData.lastName,
     userName: formData.userName,
-    password: formData.password
+    password: formData.password,
+    email: formData.email
   };
 
   
   try{
-      const response = await axios.post('http://localhost:8083/to-do-app/register', payload);
+      const response = await axios.post('http://localhost:8081/quiz/register', payload);
 
       if(response.data === 'Registered Successfully'){
         openLogin();
@@ -44,6 +46,7 @@ const RegisterForm = ({ closeForm, openLogin }) => {
       }
 
   }catch (error){
+    console.log(error.response?.data?.message)
       setError(error.response?.data?.message || 'Registration failed. Please try again.');
   }finally{
     setLoading(false);
@@ -68,6 +71,9 @@ const RegisterForm = ({ closeForm, openLogin }) => {
 
           <label htmlFor="lastName">Last Name</label>
           <input type="text" id="lastName" name='lastName' placeholder="Enter your last name" value={formData.lastName} onChange={handleInputChange} required/>
+
+          <label htmlFor="email">Email</label>
+          <input type="text" id="email" name='email' placeholder="Enter your email address" value={formData.email}  onChange={handleInputChange} required/>
 
           <label htmlFor="userName">Username</label>
           <input type="text" id="userName" name='userName' placeholder="Enter your username" value={formData.userName}  onChange={handleInputChange} required/>

@@ -17,18 +17,22 @@ const LoginForm = ({ closeForm, openRegister, onLoginSuccess }) => {
     const handleLogin = async (e) =>{
       e.preventDefault();
 
+    
+
       try{
-        const response = await axios.post( 'http://localhost:8083/to-do-app/login', {username, password});
-        if(response.data !== username){
-          setError('Invalid username or password');
-        }
-        else{
-          const currentLoggedInUser = response.data;
-          onLoginSuccess(currentLoggedInUser);
-        }
+        const response = await axios.post('http://localhost:8081/quiz/login', {username, password});
+        console.log(response.data)
+
+        // if(response.data !== username){
+        //   setError('Invalid username or password');
+        // }
+        // else{
+        //   const currentLoggedInUser = response.data;
+        //   onLoginSuccess(currentLoggedInUser);
+        // }
       }
       catch(error){
-        setError('An error occurred while logging in. Please try again.');
+        setError("Invalid username or password");
       }
     };
 
