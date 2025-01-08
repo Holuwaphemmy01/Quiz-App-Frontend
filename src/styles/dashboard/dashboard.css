@@ -3,12 +3,12 @@
     background: linear-gradient(135deg, #1e53d8, #8cdcff);
     color: #ffffff;
     min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   
-  /* Welcome Section */
   .welcome-section {
     text-align: center;
     margin-top: 50px;
@@ -68,19 +68,5 @@
     transform: scale(1.05);
   }
   
-  /* Responsive Design */
-  @media screen and (max-width: 768px) {
-    .welcome-section h1 {
-      font-size: 2rem;
-    }
   
-    .level-section {
-      padding: 15px;
-    }
-  
-    .start-btn {
-      padding: 10px 16px;
-      font-size: 0.9rem;
-    }
-  }
   
