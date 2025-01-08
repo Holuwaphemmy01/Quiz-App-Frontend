@@ -1,4 +1,5 @@
 footer {
+  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +37,7 @@ footer .social-icons a {
 }
 
 footer .social-icons a:hover {
-  background-color: #8cdcff; /* Matches header circle */
+  background-color: #8cdcff;
   color: #ffffff;
   transform: scale(1.1);
 }

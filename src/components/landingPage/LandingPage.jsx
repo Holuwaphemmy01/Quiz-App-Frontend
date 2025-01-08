@@ -42,8 +42,8 @@ const LandingPage =()=> {
        <Header openLogin={openLogin} openRegister={openRegister} />
        <Hero openRegister={openRegister} />
        {showLogin && (
-         <div className='modal'>
-           <div  className='modal-content'>
+         <div className='hero'>
+           <div  className='hero-content'>
              <LoginForm closeForm={closeForm} openRegister={openRegister}  onLoginSuccess={onLoginSuccess}/>
            </div>
          </div>

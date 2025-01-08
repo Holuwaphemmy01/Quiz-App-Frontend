@@ -1,13 +1,12 @@
 import React from 'react';
-import Header from './Header'; // Assuming you have a reusable Header component
-import Footer from './Footer'; // Assuming you have a reusable Footer component
+import Header from './Header'; 
+import Footer from './Footer'; 
 import '../../styles/dashboard/dashboard.css';
 
 const Dashboard = ({ username, currentLevel, startQuiz }) => {
   return (
     <div className="dashboard">
       <Header />
-
       <section className="welcome-section">
         <h1>Welcome, {username}!</h1>
         <p>Your current level is: <span className="current-level">Level {currentLevel}</span></p>

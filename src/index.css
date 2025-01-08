@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
-  height: min-content;
+  height: 100%;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -13,8 +13,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-} */
-/*
+}
+
 a {
   font-weight: 500;
   color: #646cff;

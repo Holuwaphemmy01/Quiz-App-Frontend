@@ -1,11 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .dashboard {
+
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #1e53d8, #8cdcff);
     color: #ffffff;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     justify-content: space-between;
   }
   
@@ -30,7 +40,6 @@
     color: #ffdd57;
   }
   
-  /* Level Section */
   .level-section {
     text-align: center;
     margin: 30px auto;

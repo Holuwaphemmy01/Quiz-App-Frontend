@@ -1,16 +1,18 @@
 .hero {
   position: relative;
-  height: 71.5vh;
+  height: 74vh;
+  padding-left: 1%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom right, #1e3c72, #2a5298);
+  background: linear-gradient(to bottom right, #1e3c72, #3b78e1);
   color: white;
   text-align: center;
   overflow: hidden;
+  
 }
 
-.hero::before {
+/* .hero::before {
   content: '';
   position: absolute;
   top: 0;
@@ -19,13 +21,13 @@
   height: 100%;
   opacity: 0.3; 
   z-index: -1;
-}
-
+} */
+/* 
 .hero-content {
   max-width: 800px;
   padding: 20px;
   animation: fadeIn 2s ease-in-out;
-}
+} */
 
 .hero-caption {
   font-size: 2rem;
