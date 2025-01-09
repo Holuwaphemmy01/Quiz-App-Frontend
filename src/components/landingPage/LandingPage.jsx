@@ -31,10 +31,10 @@ const LandingPage =()=> {
      setShowRegister(false);
    };
 
-   const onLoginSuccess =(username) =>{
+   const onLoginSuccess =(username, currentLevel) =>{
      setUsername(username);
-     setCurrentLevel(currentLoggedInUse)
-     navigate('/dashboard', {state:{username}} );
+     setCurrentLevel(currentLevel);
+     navigate('/dashboard', {state:{username, currentLevel}});
    }
  
    return (

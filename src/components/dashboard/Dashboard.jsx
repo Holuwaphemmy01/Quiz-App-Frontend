@@ -1,9 +1,22 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './Header'; 
 import Footer from './Footer'; 
 import '../../styles/dashboard/dashboard.css';
 
-const Dashboard = ({ username, currentLevel, startQuiz }) => {
+const Dashboard = () => {
+  const location = useLocation();
+  const {username, currentLevel} = location.state;
+  const navigate = useNavigate();
+
+
+
+  const startQuiz = () => {
+    navigate('/quiz', {
+      state: { username, currentLevel }, 
+    });
+  };
+
   return (
     <div className="dashboard">
       <Header />
