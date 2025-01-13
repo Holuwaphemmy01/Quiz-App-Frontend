@@ -89,6 +89,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: black;
   }
   
   .popup-content {
@@ -104,3 +105,8 @@
     cursor: pointer;
   }
   
+
+  .level{
+    font-size: large;
+    font-weight: bolder;
+  }

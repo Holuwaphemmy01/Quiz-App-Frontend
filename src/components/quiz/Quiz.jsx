@@ -12,19 +12,24 @@ const Quiz = ({ submitAnswers }) => {
   const [questions, setQuestions] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [timer, setTimer] = useState(20); // Timer in seconds
+  const [timer, setTimer] = useState(80); 
   const [popup, setPopup] = useState({ show: false, message: '', isSuccess: false });
   const [currentLevel, setCurrentLevel] = useState(initialLevel);
 
-  // Load questions
+
+  const [user, setUser] = useState({
+    username: username,
+    currentLevel: currentLevel,
+  });
+
   const loadQuestions = async () => {
     setLoading(true);
     try {
       const response = await axios.get(`http://localhost:8082/quiz/questions/${username}`);
       setQuestions(response.data);
 
-      // Reset selected options for the new set of questions
       setSelectedOptions(new Array(response.data.length).fill(""));
+
     } catch (error) {
       console.error('Failed to load questions:', error);
     } finally {
@@ -36,7 +41,6 @@ const Quiz = ({ submitAnswers }) => {
     loadQuestions();
   }, [username, currentLevel]);
 
-  // Timer logic
   useEffect(() => {
     const countdown = setInterval(() => {
       setTimer((prev) => {
@@ -51,7 +55,6 @@ const Quiz = ({ submitAnswers }) => {
     return () => clearInterval(countdown);
   }, []);
 
-  // Handle option selection
   const handleOptionSelect = (questionIndex, option) => {
     setSelectedOptions((prev) => {
       const updated = [...prev];
@@ -60,26 +63,8 @@ const Quiz = ({ submitAnswers }) => {
     });
   };
 
-  // Submit answers
-  // const handleSubmit = async () => {
-  //   try {
-  //     const payload = {
-  //       userName: username,
-  //       selectedOptions,
-  //     };
-  //     console.log(payload);
-  //     const response = await axios.post('http://localhost:8082/quiz', payload);
+  
 
-  //     if (response.data === 'congratulations') {
-  //       setPopup({ show: true, message: 'Congratulations! Proceed to the next level.', isSuccess: true });
-  //     } else {
-  //       setPopup({ show: true, message: response, isSuccess: false });
-  //     }
-  //   } catch (error) {
-  //     console.error('Failed to submit answers:', error);
-  //     alert('There was an error submitting your answers. Please try again.');
-  //   }
-  // };
 
 
   const handleSubmit = async () => {
@@ -95,7 +80,7 @@ const Quiz = ({ submitAnswers }) => {
       const response = await axios.post('http://localhost:8082/quiz', payload);
       console.log('Response from API:', response.data);
   
-      if (response.data === 'congratulations') {
+      if (response.data === 'Congratulation') {
         setPopup({ show: true, message: 'Congratulations! Proceed to the next level.', isSuccess: true });
       } else {
         setPopup({ show: true, message: response.data, isSuccess: false });
@@ -108,28 +93,38 @@ const Quiz = ({ submitAnswers }) => {
   
   };
   
-  // Handle next level
   const handleNextLevel = () => {
     setCurrentLevel((prev) => prev + 1);
     setPopup({ show: false, message: '', isSuccess: true });
+    setTimer(80); 
     loadQuestions();
   };
 
-  // Handle retry
   const handleRetry = () => {
     setPopup({ show: false, message: '', isSuccess: false });
+    setTimer(280); 
     loadQuestions();
   };
 
-  // Loading state
+  
   if (loading) {
     return <div className="loading">Loading questions...</div>;
   }
 
+
+  const clearUserData = () => {
+    setUser({
+      username: '',
+      currentLevel: 0,
+    });
+  };
+
+
   return (
     <div className="quiz">
-      <Header />
+      <Header clearUserData={clearUserData}/>
       <div className="quiz-content">
+      <div className="level">Current Level: {currentLevel}</div>
         <div className="timer">
           Time Remaining: {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}
         </div>
@@ -158,7 +153,6 @@ const Quiz = ({ submitAnswers }) => {
         </button>
       </div>
 
-      {/* Popup Modal */}
       {popup.show && (
         <div className="popup">
           <div className="popup-content">
@@ -178,3 +172,4 @@ const Quiz = ({ submitAnswers }) => {
 };
 
 export default Quiz;
+
